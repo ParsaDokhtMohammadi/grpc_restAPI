@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package blogPackage;
+package BlogPackage;
 
 message Blog {
     int32 id = 1;
@@ -31,9 +31,9 @@ message Result {
 
 
 service BlogService {
-  rpc listProduct(Empty) returns (BlogList);
-  rpc getProduct(BlogId) returns (Blog);
-  rpc CreateProduct(CreateBlog) returns (Result);
-  rpc updateProduct(Blog) returns (Result);
-  rpc deleteProduct(BlogId) returns (Result);
+  rpc listBlog(Empty) returns (BlogList);
+  rpc getBlog(BlogId) returns (Blog);
+  rpc CreateBlog(CreateBlog) returns (Result);
+  rpc updateBlog(Blog) returns (Result);
+  rpc deleteBlog(BlogId) returns (Result);
 }

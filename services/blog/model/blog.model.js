@@ -14,6 +14,6 @@ BlogSchema.pre("save", async function () {
 });
 
 
-const productModel = mongoose.model("Blog",BlogSchema)
+const BlogModel = mongoose.model("Blog",BlogSchema)
 
-export {productModel}
+export {BlogModel}
