@@ -14,7 +14,11 @@ export const listProduct = (req, res, next) => {
     })
 }
 export const getProduct = (req, res, next) => {
-
+    const { id } = req.params 
+    productClient.getProduct({ id:+id }, (err, data) => {
+        if (err) return res.json(err)
+        return res.json(data)
+    })
 }
 export const createProduct = (req, res, next) => {
     const { title, price } = req.query

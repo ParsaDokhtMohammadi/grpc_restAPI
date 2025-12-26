@@ -5,6 +5,6 @@ ProductRouter.get("/list",listProduct)
 ProductRouter.get("/create",createProduct)
 ProductRouter.get("/delete",deleteProduct)
 ProductRouter.get("/update",updateProduct)
-ProductRouter.get("/product",getProduct)
+ProductRouter.get("/:id",getProduct)
 
 export {ProductRouter}

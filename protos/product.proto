@@ -32,7 +32,7 @@ message Result {
 
 service ProductService {
   rpc listProduct(Empty) returns (ProductList);
-  rpc getProduct(Empty) returns (Product);
+  rpc getProduct(ProductId) returns (Product);
   rpc CreateProduct(CreateProduct) returns (Result);
   rpc updateProduct(Product) returns (Result);
   rpc deleteProduct(ProductId) returns (Result);
