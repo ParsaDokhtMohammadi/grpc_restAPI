@@ -11,7 +11,13 @@ export const getProduct = async (call, callback) => {
 
 }
 export const createProduct = async (call, callback) => {
-
+ try{
+    const {title,price} = call.request
+    await productModel.create({title,price})
+    callback(null,{status:200})
+ }catch(err){
+    callback(err,null)
+ }
 }
 export const updateProduct = async (call, callback) => {
 

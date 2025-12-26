@@ -6,14 +6,13 @@ const ProductSchema = mongoose.Schema({
     price:{type:String}
 })
 
-ProductSchema.pre("save",function(next){
-    const self = this
-    self.constractor.count(async function(err,data){
-        if(err) return next(err)
-        model.set({id:data + 1})
-        next()
-    })
-})
+ProductSchema.pre("save", async function () {
+  if (this.id) return;
+
+  const count = await this.constructor.countDocuments();
+  this.id = count + 1;
+});
+
 
 const productModel = mongoose.model("product",ProductSchema)
 
