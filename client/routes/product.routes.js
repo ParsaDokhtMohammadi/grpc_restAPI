@@ -3,7 +3,7 @@ import {listProduct,createProduct, deleteProduct, updateProduct, getProduct} fro
 const ProductRouter = Router()
 ProductRouter.get("/list",listProduct)
 ProductRouter.get("/create",createProduct)
-ProductRouter.get("/delete",deleteProduct)
+ProductRouter.get("/delete/:id",deleteProduct)
 ProductRouter.get("/update",updateProduct)
 ProductRouter.get("/:id",getProduct)
 

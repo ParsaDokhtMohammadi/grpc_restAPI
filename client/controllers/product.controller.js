@@ -31,5 +31,9 @@ export const updateProduct = (req, res, next) => {
 
 }
 export const deleteProduct = (req, res, next) => {
-
+    const { id } = req.params 
+    productClient.deleteProduct({ id:+id }, (err, data) => {
+        if (err) return res.json(err)
+        return res.json(data)
+    })
 }
