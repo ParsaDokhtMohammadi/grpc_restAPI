@@ -28,7 +28,12 @@ export const createProduct = (req, res, next) => {
     })
 }
 export const updateProduct = (req, res, next) => {
-
+ 
+    const data = req.query
+    productClient.updateProduct(data,(err,data)=>{
+        if(err) return res.json(err)
+        return res.json(data)
+    })
 }
 export const deleteProduct = (req, res, next) => {
     const { id } = req.params 

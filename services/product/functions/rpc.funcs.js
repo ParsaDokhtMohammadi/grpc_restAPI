@@ -32,7 +32,16 @@ export const createProduct = async (call, callback) => {
     }
 }
 export const updateProduct = async (call, callback) => {
-
+  try {
+    const { id } = call.request;
+    const data = call.request 
+    delete data.id
+    const result = await productModel.updateOne({ id: Number(id) },{$set:data});
+    if (result.modifiedCount > 0) return callback(null,{status:200})
+      return callback({message:"update failed"},null)
+  } catch (err) {
+    callback(err);
+  }
 }
 export const deleteProduct = async (call, callback) => {
 try {
