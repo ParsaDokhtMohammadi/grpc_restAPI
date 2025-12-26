@@ -1,24 +1,28 @@
 import grpc from "@grpc/grpc-js"
 import protoLoader from "@grpc/proto-loader"
-const protoPath = "../../protos/product.proto"
+const protoPath = "../protos/product.proto"
 const productProto = protoLoader.loadSync(protoPath)
 const {productPackage} = grpc.loadPackageDefinition(productProto)
 const productServiceURL = "localhost:4001"
 const productClient = new productPackage.ProductService(productServiceURL,grpc.credentials.createInsecure())
 
 
-const listProduct = async(req , res , next)=>{
+export const listProduct = (req , res , next)=>{
+    productClient.listProduct(null,(err,data)=>{
+        if(err) return res.json(err)
+        return res.json(data)
+        
+    })
+}
+export const getProduct = (req , res , next)=>{
 
 }
- const getProduct = async(req , res , next)=>{
-
-}
- const createProduct = async(req , res , next)=>{
+export const createProduct = (req , res , next)=>{
     
 }
- const updateProduct = async(req , res , next)=>{
+export const updateProduct = (req , res , next)=>{
     
 }
- const deleteProduct = async(req , res , next)=>{
+export const deleteProduct = (req , res , next)=>{
     
 }
